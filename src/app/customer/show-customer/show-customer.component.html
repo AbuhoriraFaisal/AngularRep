@@ -1,3 +1,10 @@
+
+<!-- Add customer  Button trigger modal -->
+<button type="button" class="btn btn-primary float-end" data-bs-toggle="modal" 
+data-bs-target="#staticBackdrop"
+(click)="modalAdd()">
+    Add Customer
+  </button>
 <table class="table table-striped">
 <thead>
     <th>Id</th>
@@ -12,3 +19,30 @@
     </tr>
 </tbody>
 </table>
+<div class="alert alert-warning" role="alert" id="add-success-alert">
+    Customer Successfully addedd!
+  </div>
+<div class="alert alert-warning" role="alert" id="update-success-alert">
+    Customer Successfully Updated!
+  </div>
+<div class="alert alert-warning" role="alert" id="delete-success-alert">
+    Customer Successfully Deleted!
+  </div>
+
+  <!-- Add Customer Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">{{modalTitle}}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+          (click)="modalClose()" id="add-edit-modal-close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <app-add-edit-customer [customer]="customer" *ngIf="ActivateAddEditCustomerComponent"></app-add-edit-customer> 
+        </div>
+        
+      </div>
+    </div>
+  </div>

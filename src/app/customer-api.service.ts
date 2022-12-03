@@ -11,8 +11,13 @@ readonly apiUrl = "https://localhost:7009/";
   
   
   getcustomers():Observable<any[]>{
-    return this.http.get<any>('https://localhost:7009/getallcustomers');
+    return this.http.get<any>(this.apiUrl + 'getallcustomers');
   }
-
+  addCustomer(data:any){
+    return this.http.post('https://localhost:7009/CreateCustomer' , data);
+  }
+updateCustomer(data:any){
+  return this.http.put(this.apiUrl + 'UpdateCustomer' , data);
+  }
 
 }
