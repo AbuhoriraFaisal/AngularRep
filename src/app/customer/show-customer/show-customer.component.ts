@@ -16,4 +16,22 @@ export class ShowCustomerComponent implements OnInit {
     this.customersList$ = this.service.getcustomers();
   }
 
+  //variables
+  modalTitle:string="";
+  ActivateAddEditCustomerComponent:boolean=false;
+  customer:any;
+
+  modalAdd(){
+    this.customer = {
+      customerId:0,
+      customerName:null,
+      phoneNumber:null
+    }
+    this.modalTitle="Add Customer";
+    this.ActivateAddEditCustomerComponent=true; 
+  }
+  modalClose(){
+    this.ActivateAddEditCustomerComponent=false;
+    this.customersList$ = this.service.getcustomers(); 
+  }
 }
